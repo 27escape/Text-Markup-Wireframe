@@ -1,0 +1,20 @@
+
+|= {light} |\ {1 dark} (_:fa:plus: Add_) |\ {7} |\ { dark 2 >} Sort by (_Name_v) |\ { 2 > } Search [__10]
+=|
+
+|= {light} |\ {1 dark =} 1 |\ {1 =} 2 |\ {1 dark= } 3 |\{1 =} 4 |\ {1 dark =} 5 |\ {1 = }6 |\ {1 = dark} 7 |\{1 =} 8 |\ {1 dark = } 9 |\ {1 = }10 |\ {1 = dark} 11 |\ {1 > border }12
+=|
+
+|= {red} |\ { blue =} 1 |\ { =} 2 |\ { blue= } 3 |\ { =} 4 |\ { blue =} 5 |\ { = }6 |\ { = blue} 7 |\ { =} 8 |\ { blue = } 9 |\ { = }10 |\ { = blue} 11 |\ { > border }12
+=|
+
+|= {border #.oc-blue-5}
+|\ {8}
+provider ID  | [__6]  <br>
+Rating       | (_PG_v)  <br>
+Type         | (_TV_v)  <br>
+Triplets     |  [_ONID_6]  [_TSID_6] [_SID_6] <br>{#gray}
+Posters      | ( ) Yes (*) No  <br>
+Prem Posters | ( ) Yes (*) No  <br>
+|\ {=- 4} [>_Channel Icon_130x90<]
+=|

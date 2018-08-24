@@ -1,0 +1,47 @@
+|= |\ {col12 =} radio boxes =|
+|= |\ {col12 =} Automatic Available (*) Automatic Immediate ( ) Manual ( )  =|
+
+|= |\ {col12 =} check boxes =|
+|= |\ {col12 =} Automatic Available [*] Automatic Immediate [ ] Manual [ ]  =|
+
+|= |\ {col12 =} [x] xbox [*] tickbox [ ] emptybox =|
+
+|= |\ {col12 =} buttons =|
+
+|= |\ {col4} (_button { > #white.red }_) |\ {col4} (_select_v) =|
+
+|= |\ {col12 =} input =|
+
+|= |\ {col4} [_basic input_] |\ {col4} [_input with size_18]
+|\ {col6 =} [_textarea 50 by 5 rows_50x5]
+
+|= |\ {col12 =} [_textarea 50 by 5 rows with some formatting { = - #red.oc-grape-3}_50x5] =|
+
+|= |\ {col12 =} images =|
+
+|= |\ {col1 =} default [><] |\ {col2 =} double [>2<] |\ {col2 =} with size [>200x50<]
+|\ {col6 =} wide  [>200x15<]
+|\ {col1 =} tiny [>10x10<] =|
+
+|= |\ {col4} wide with text [>_text with size_200x100<] |\ {col4} with size [>_some text_200x50<]
+|\ {col4} with dummy size [>_some text_200x50!1280x720<] =|
+
+|= |\ {dark} cell one |\ {light} cell two =|
+
+end of the page
+
+|=
+|\ {col1 red} one
+|\ {col1 blue} two
+|\ {col1 red} three
+|\ {col1 blue} four
+|\ {col1 red} five
+|\ {col1 blue} six
+|\ {col1 red} seven
+|\ {col1 blue} eight
+|\ {col1 red} nine
+|\ {col1 blue} ten
+|\ {col1 red} eleven
+|\ {col1 blue} twelve
+=|
+

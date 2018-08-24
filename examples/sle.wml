@@ -1,0 +1,32 @@
+|={light}
+
+|\ {col2} (_:fa:plus: Add_)
+|\ {col4}
+|\ {col3} Sort by Name :fa:down-arrow:
+|\ { > col3} Search [__20]
+
+=|
+
+|=
+|\ > |\ {light} 123 |\ {col5} BBC1
+|=
+|\ {light} > |\ 456 |\ {col5} Dave
+|=
+|\ > |\ {light} 789 |\ {col5} News24
+
+|=
+|\ {dark} [_LCN_]
+|\ Name [__30]
+|\ {>} :fa:times:
+=|
+
+|=
+|\ {blue} provider ID [__6] <br>
+Rating (_PG_v)  <br>
+Type (_TV_v)  <br>
+triplets ONID [__6] TSID [__6] SID [__6]  <br>
+posters ( ) Yes (*) No  <br>
+Prem Posters ( ) Yes (*) No  <br>
+
+|\ [>Channel Icon_130x90<]
+=|

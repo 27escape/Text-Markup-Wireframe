@@ -1,0 +1,20 @@
+|= |\ {col12 =} radio boxes =|
+|= |\ {col12 =} Automatic Available (*) Automatic Immediate ( ) Manual ( )  =|
+
+!!M {modal50}
+
+|= |\ {col12 =} Upload Channel Icon =|
+|= |\ {col6 ^} Requirements
+
+* Format: PNG
+* resolution: 160x120
+* Filesize: 4KB
+
+|\ {col6 ^}
+[_Filename_20] (_Select_)
+=|
+
+|= |\ {col3 } &nbsp; |\ { col3 =} (_Cancel {#.salmon}_) |\ { col3 =} (_Upload {#.green200}_) =|
+
+M!!
+

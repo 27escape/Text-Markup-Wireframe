@@ -1,0 +1,6 @@
+
+|M {modal2 #.white}
+|= |\ {col2} &nbsp; |\ {col8} File (_List of OTA filenames{#.indigo200}_v)              =|
+|= |\ {col2} &nbsp; |\ {col8} Start Date [_yyyy-mm-dd_12] :fa:calendar: <br><br>        =|
+|= |\ {col3 } &nbsp; |\ { col3 =} (_Cancel {#.salmon}_) |\ { col3 =} (_Accept {#.green200}_) =|
+M|

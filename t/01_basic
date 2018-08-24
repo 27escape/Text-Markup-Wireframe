@@ -1,0 +1,125 @@
+#!/usr/bin/env perl
+
+use strict ;
+use warnings ;
+use Test::More tests => 32;
+use Path::Tiny ;
+use Text::Markup::Wireframe ;
+
+# wireframe markup language
+# options for converting to foundation, basic or bootstrap grids
+# could also be done with a table
+# = start row
+# |\ start cell
+# |\3 |\12 size of cell
+
+# change 12x col grid to be based on 96 rather than 100%, as its a divisior by 12
+# add 2% either end for padding
+# either hidden pre first span and post last
+# or extend first and last by 2%
+
+my $f ;
+# $f = wireframe("(_basic button_)", "bootstrap") ;
+# $f = wireframe("(_basic button_)", "foundation") ;
+# $f = wireframe("(_basic button_)", "table") ;
+
+# check boxes
+$f =  wireframe( "[ ] clear") ;
+ok( $f =~ /<input.*?type=checkbox/, "checkbox") ;
+$f =  wireframe( "[*] selected") ;
+ok( $f =~ /<input.*?type=checkbox/ && $f =~ /checked/, "checkbox - checked") ;
+# radio boxes
+$f =  wireframe( "( ) clear") ;
+ok( $f =~ /<input.*?type=radio/, "radio") ;
+$f =  wireframe( "(*) selected") ;
+ok( $f =~ /<input.*?type=radio/ && $f =~ /checked/, "radio - checked") ;
+
+my $button_text = "basic button " . time() ;
+$f = wireframe("(_$button_text" . "_)", ) ;
+ok( $f =~ /<button/, "basic button") ;
+ok( $f =~ /<button.*?>$button_text<\/button>/, "button has correct text") ;
+
+$f = wireframe( "align right (_button{> _ 30% \@2.5}_)") ;
+ok( $f =~ /text-align:\s?right/, "button text aligns right") ;
+ok( $f =~ /vertical-align:\s?bottom/, "button vertical aligns bottom") ;
+ok( $f =~ /font-size:\s?2.5em/, "button has font size") ;
+ok( $f =~ /width:\s?30%/, "button percent width") ;
+
+$f = wireframe( "align center (_button{= - 30px #red.blue}_)") ;
+ok( $f =~ /text-align:\s?center/, "button text aligns center") ;
+ok( $f =~ /vertical-align:\s?middle/, "button vertical aligns middle") ;
+ok( $f =~ /color:\s?red;/, "button color red") ;
+ok( $f =~ /background(-color)?:\s?blue;/, "button background blue") ;
+ok( $f =~ /width:\s?30px/, "button pix width") ;
+
+$f = wireframe( "align left (_button{< ^ 30em sample}_)") ;
+ok( $f =~ /text-align:\s?left/, "button text aligns left") ;
+ok( $f =~ /vertical-align:\s?top/, "button vertical aligns top") ;
+ok( $f =~ /width:\s?30em/, "button em width") ;
+ok( $f =~ /class=.*?sample/, "button class is sample") ;
+
+# # dropdown button
+$f =  wireframe( "(_button_v)") ;
+ok( $f =~ /&#x25BC;/, "dropdown button has down arrow") ;
+
+# # text input
+$f =  wireframe( "[_text_] ") ;
+ok( $f =~ /<input.*?type=text/, "basic text input") ;
+ok( $f =~ /value=["']text["']/, "text input has a value") ;
+# # input with format and size
+$f =  wireframe( "[_text{> #red.blue}_20] ") ;
+ok( $f =~ /<input.*?type=text/, "basic text input") ;
+ok( $f =~ /size=["']?20["']?/, "text has size") ;
+ok( $f =~ /color:\s?red;/, "color red") ;
+ok( $f =~ /background(-color)?:\s?blue;/, "text background blue") ;
+# # textarea with format
+$f =  wireframe( "[_text{#red.blue}_20x5_] ") ;
+
+ok( $f =~ /<textarea.*?>text<\/textarea/, "textarea") ;
+ok( $f =~ /cols=20/, "textarea has cols") ;
+ok( $f =~ /rows=5/, "textarea has rows") ;
+ok( $f =~ /color:\s?red;/, "textarea color red") ;
+ok( $f =~ /background(-color)?:\s?blue;/, "textarea background blue") ;
+
+# # image generation, not going to programatically test the SVG itself
+$f =  wireframe( "square [><]") ;
+ok( $f =~ /<svg/, "something SVG generated") ;
+
+# for manual testing
+$f =  wireframe( "square [>!<]") ;
+
+$f = wireframe( "# [>_Thumbnail_160x120!1280x720<]") ;
+diag( explain $f) ;
+
+# # rows and cells
+# $f =  wireframe( "=", 'table') ; # new row
+# diag( explain $f) ;
+# ok( $f =~ /<table/, "something about table") ;
+# $f =  wireframe( "= {#red.blue") ; # new row with format
+# ok( 0, "no test") ;
+# $f =  wireframe( "|\\") ; # new cell, need \\ to escape \
+# ok( 0, "no test") ;
+# $f =  wireframe( "|\\{#red.blue}") ; # new cell with format
+# ok( 0, "no test") ;
+# $f =  wireframe( "#
+# |\\") ; # row, one cell 12 wide, ends row
+# $f =  wireframe( "#
+# |\\
+# |\\
+# ") ; # row, 2 cells each 6 wide, ends row
+# ok( 0, "no test") ;
+# $f =  wireframe( "#
+# |\\1
+# |\\
+# ") ; # row, 2 cells, first 1 wide, second expands 11, ends row
+# ok( 0, "no test") ;
+# $f =  wireframe( "#
+# |\\1
+# |\\5
+# ") ; # row, 2 cells, first 1 wide, second 5, ends row, no expansion to 12
+# ok( 0, "no test") ;
+
+
+
+
+

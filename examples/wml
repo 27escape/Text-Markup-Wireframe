@@ -1,0 +1,63 @@
+#!/usr/bin/env perl
+# PODNAME: wml
+# ABSTRACT: Process WML data into HTML with Text::Markup::Wireframe
+
+=head1 NAME
+
+wml
+
+=head1 SYNOPSIS
+
+    > wml ..options.. filename [output_filename]
+
+    to get full help use
+    > wml --help
+
+=head1 DESCRIPTION
+
+Process WML data into HTML with Text::Markup::Wireframe
+
+=cut
+
+#
+# (c) yourname, your@email.address.com
+# this code is released under the Perl Artistic License
+
+use 5.10.0 ;
+use strict ;
+use warnings ;
+use App::Basis ;
+use Text::Markup::Wireframe ;
+use Path::Tiny ;
+
+# -----------------------------------------------------------------------------
+# main
+
+my $program = get_program() ;
+
+my %opt = init_app(
+    help_text    => "Process WML file into HTML with Text::Markup::Wireframe",
+    help_cmdline => "input_filename [output_filename]",
+    options      => { 'verbose|v' => 'Dump extra useful information', },
+) ;
+
+show_usage("Missing filename") if ( !$ARGV[0] || !-f $ARGV[0] ) ;
+
+my $content ;
+# readin the content
+# if ( $opt{has_content} ) {
+#     $content = do { local $/ ; <STDIN> } ;
+#     chomp $content ;
+# } else {
+$content = path( $ARGV[0] )->slurp_utf8() ;
+# }
+my $CSS = path("~/.ct2/css/common.css")->slurp_utf8() ;
+
+my $out = wireframe($content) ;
+# save to specified file
+if ( $ARGV[1] ) {
+    path( $ARGV[1] )->spew_utf8( $out) ;
+} else {
+    print "<html><head><style>$CSS</style></head><body><div class=container>" . $out
+        . "</div></body></html>\n" ;
+}

@@ -1,0 +1,609 @@
+<html><head><style>/* -------------- common css -------------- */
+
+pre {
+    white-space: pre-wrap;
+}
+
+.light {
+    background:#CCC;
+    color:#333;
+}
+.dark {
+    background:#333;
+    color:#CCC;
+}
+
+.nav {
+    background: black;
+    color: gray;
+    border: 1px solid gray;
+    margin: -2px -2px -2px -2px;
+}
+.navsel {
+    color: green;
+}
+
+.red { background: red; }
+.blue { background: blue; }
+.black { background: black; }
+
+/* stolen from http://andhart.github.io/bijou/ */
+/* basic 10 cell grid, alerts and buttons */
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+
+.container {
+    width: 708px;
+}
+
+.container:after {
+    content: "\00A0";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.row:before, .row:after {
+    content: "\00A0";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+/*.row:after {
+    clear: both;
+}*/
+.row {
+    zoom: 1
+}
+
+.span {
+    float: left;
+    display: block;
+    height: auto ;
+    /*min-height: 100%;*/
+    max-height: 100%;
+    /*border: 1px solid red;*/
+    height: auto;
+    vertical-align: top;
+}
+
+/*.span {
+    display:inline-block;
+    height: auto;
+    min-height: 100%;
+    max-height: 100%;
+}*/
+.span:first-child {
+    margin-left: 0;
+}
+.span:last-child {
+    margin-right: 0;
+}
+
+/* grid based on 10ths */
+.one {   width: 10%; }
+.two {   width: 20%; }
+.three { width: 30%; }
+.four {  width: 40%; }
+.five {  width: 50%; }
+.six {   width: 60%; }
+.seven { width: 70%; }
+.eight { width: 80%; }
+.nine {  width: 90%; }
+.ten {   width: 100%; }
+
+/* grid based on 12ths */
+
+.col1 {  width: 8.33333333%; }
+.col2, .col_sixth {  width: 16.66666667%; }
+.col3, .col_qtr {  width: 25%; }
+.col4, .col_third {  width: 33.33333333%; }
+.col5 {  width: 41.66666667%; }
+.col6, .col_half {  width: 50%; }
+.col7 {  width: 58.33333333%; }
+.col8 {  width: 66.66666667%; }
+.col9 {  width: 75%; }
+.col10 {  width: 83.33333333%; }
+.col11 {  width: 91.66666667%; }
+.col12 {  width: 100%; }
+
+/* redo on matching ends col11 = col12 - col1 etc*/
+/*.col1 {  width: 8%; }
+.col2, .col_sixth {  width: 16%; }
+.col3, .col_qtr {  width: 25%; }
+.col4, .col_third {  width: 32%; }
+.col5 {  width: 40%; }
+.col6, .col_half {  width: 50%; }
+.col7 {  width: 60%; }
+.col8 {  width: 68%; }
+.col9 {  width: 75%; }
+.col10 {  width: 84%; }
+.col11 {  width: 92%; }
+.col12 {  width: 100%; }*/
+
+/* need to make the alerts look nicer */
+.alert p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* this is the icon and the title */
+.alert > p:first-child {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.alert > p:last-child {
+    margin-bottom: 0px;
+}
+
+/* all  wireframe tables will be styled this way */
+table.old_wf
+{
+    margin: 0px;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+    background: grey50 ;
+}
+tr.old_wf tr { vertical-align:top;}
+th.old_wf th
+{
+    padding: 0px 0px 0px 0px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+}
+td.old_wf
+{
+    padding: 0px 0px 0px 0px;
+    border: 1px solid gray;
+}
+
+.alert {
+    margin-bottom: 10px;
+    margin-top: 10px ;
+}
+
+.topnav {
+    background-color: black;
+    color: gray;
+}
+.topnav.sel, .subnav.sel {
+    color: green;
+    font-weight: bold;
+}
+.subnav {
+    background-color: black;
+    color: gray;
+}
+
+li.mainnav {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+li.childnav {
+    list-style-type: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+li.childnav:last-child {
+    margin-bottom: 0px;
+}
+
+ul.wireframe.mainnav {
+    font-size: 0.5em;
+    color: white;
+    font-weight: bold;
+    margin-left: 1.5em;
+    padding-left: 1em;
+    font-weight: 200;
+}
+li.mainnav.sel {
+    font-weight: 900;
+    background: #505050;
+}
+ul.wireframe.childnav {
+    font-size: 0.9em;
+    margin-left: 3em;
+    padding-left: 5px;
+    color: white;
+}
+
+li.childnav.sel {
+    color: #9C6;
+}
+
+/* all  wireframe tables will be styled this way */
+
+div.wireframe {
+    margin-bottom: 1em;
+}
+
+table.wireframe
+{
+    margin: 0px;
+    border-collapse: collapse;
+    width: 100%;
+}
+td.wireframe
+{
+    padding: 0px 0px 0px 0px;
+}
+td.wireframe.webpage {
+    padding: 0px 0px 0px 0px;
+    background: #f0f0f0;
+    border: 0.001px solid #f0f0f0;
+}
+td.wireframe.menu {
+    padding: 0px 0px 0px 0px;
+    background: #404040;
+    border: 0.001px solid #f0f0f0;
+}
+td.wireframe.user {
+    padding: 0px 0px 0px 0px;
+    background: #9C6;
+    color: black;
+    font-weight: bold;
+    font-size: 0.7em;
+    border: 0.001px solid #f0f0f0;
+}
+
+p.wireframe.title {
+    font-size: 0.8em;
+    font-weight: 700;
+    padding-left: 0.5em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0px 0px 0px 0px ;
+}
+p.wireframe.org {
+    padding-top: 5px ;
+    padding-left: 0.5em;
+    margin: 5px 0px 0px 0px ;
+}
+p.wireframe.orguser {
+    text-align: right;
+    padding-top: 0px ;
+    padding-bottom: 0px;
+    font-size: 1.2em;
+    margin: 0px 0px 0px 0px ;
+}
+
+/* normally a div to hold other divs so we can match their heights */
+.rowholder {
+    height: auto;
+}
+
+table.sidebar {
+    border-collapse: collapse;
+    width: 40px;
+    background: #404040;
+    color:white;
+    border: none;
+}
+table.sidebar tr {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+}
+table.sidebar td {
+    border: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 1px 0px 1px;
+}
+
+table.open
+{
+    margin: 0px;
+    text-align: left;
+    border-collapse: collapse;
+}
+table.open tr { vertical-align:top;}
+table.open th
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: #ccc;
+    font-weight: bold;
+    text-align: center;
+}
+table.open td
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 3px 0px 3px;
+    border: none;
+/*    border: 1px solid black;*/
+}
+
+input {
+    background: white;
+}
+
+button.wireframe {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 3px 0px 3px;
+}
+
+.wireframe > p {
+    margin: 0px 0px 0px 0px;
+}
+
+.border {
+    border: 1px solid #303030;
+}
+
+/* ----------------------------------------------------------------------------*/
+/* specially for the new wireframe generator */
+/* ----------------------------------------------------------------------------*/
+
+.wf {
+    text-align: left;
+}
+
+.wf_container {
+    width: 708px;
+}
+
+.wf_container:after {
+    content: "\00A0";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.wf_row:before, .wf_row:after {
+    content: "\00A0";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+.wf_row:after {
+    clear: both;
+}
+.wf_row {
+    zoom: 1
+}
+
+.wf_cell {
+    float: left;
+    display: block;
+    height: auto ;
+    /*min-height: 100%;*/
+    max-height: 100%;
+    /*border: 1px solid red;*/
+    height: auto;
+    vertical-align: top;
+}
+
+.wf_cell:first-child {
+    margin-left: 0;
+}
+.wf_cell:last-child {
+    margin-right: 0;
+}
+
+/*div.webpage {
+    position: relative;
+}*/
+div.wf_container {
+    position: relative;
+}
+
+div.modal {
+    position: absolute;
+    left: 18%;
+    top: 15%;
+    width: 75%;
+    text-align: center;
+    border: 2px solid black ;
+    /*background: #a0a0a0;*/
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+div.modal2 {
+    left: 30%;
+    width: 50%;
+}
+div.modal50 {
+    left: 30%;
+    width: 50%;
+}
+div.modal60 {
+    left: 25%;
+    width: 60%;
+}
+div.modal3 {
+    left: 30%;
+    top: 30%;
+    width: 50%;
+}
+
+div.span p:first-child {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+/* grid based on 10ths */
+.col10_1 {   width: 10%; }
+.col10_2 {   width: 20%; }
+.col10_3 { width: 30%; }
+.col10_4 {  width: 40%; }
+.col10_5 {  width: 50%; }
+.col10_6 {   width: 60%; }
+.col10_7 { width: 70%; }
+.col10_8 { width: 80%; }
+.col10_9 {  width: 90%; }
+.col10_10 {   width: 100%; }
+
+/* grid based on 12ths, based on width of 96% as divisor by 12 */
+.col12_1 {  width: 8%; }
+.col12_2, .col12_sixth {  width: 16%; }
+.col12_3, .col12_qtr {  width: 24%; }
+.col12_4, .col12_third {  width: 32%; }
+.col12_5 {  width: 40%; }
+.col12_6, .col12_half {  width: 48%; }
+.col12_7 {  width: 56%; }
+.col12_8 {  width: 64%; }
+.col12_9 {  width: 72%; }
+.col12_10 {  width: 80%; }
+.col12_11 {  width: 88%; }
+.col12_12 {  width: 96%; }
+
+
+button.wf {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 3px 0px 3px;
+    border-radius: 3px;
+    /*border: none;*/
+}
+
+.wf_container > p {
+    margin: 0px 0px 0px 0px;
+    display: inline;
+}
+
+/* status cards */
+.card {
+    float: left ;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+/* lets define some common card sizes */
+.card13 { width: 32%; }
+.card14 { width: 24%; }
+.card34 { width: 74%; }
+.card23 { width: 64%; }
+.card12 { width: 48%; }
+.card1 { width: 98%; }
+
+.card .title {
+    color: black;
+    background: white ;
+    border-bottom: 0.5px solid #d0d0d0;
+    text-align: center;
+}
+/*.card .primary {
+    border: none;
+}*/
+/* nice colors for the cards */
+.error {
+   background-color: red500 ;
+}
+.issue {
+   background-color: yellow200 ;
+}
+.warn {
+   background-color: orange300 ;
+}
+.good {
+   background-color: green100 ;
+ }
+.default {
+    background: white;
+}
+
+
+input[type="text"] {
+    border: solid black thin;
+    color: #a0a0a0;
+    content: attr(value)
+}
+
+input[type="textarea"] {
+    border: solid black thin;
+    color: #a0a0a0;
+    content: attr(value)
+}
+
+
+input[type="checkbox"] {
+    border: solid black thin;
+    content: "\2713"   /* check mark character */
+}</style></head><body><div class=container><div class='wf_container'><div class='wf row' ><div class='wf span col12' style='text-align: center;'>radio boxes</div></div><div class='wf row' ><div class='wf span col12' style='text-align: center;'>Automatic Available <input class='wf' type=radio checked> Automatic Immediate <input class='wf' type=radio> Manual <input class='wf' type=radio></div></div>
+<div class='wf row' ><div class='wf span col12' style='text-align: center;'>check boxes</div></div><div class='wf row' ><div class='wf span col12' style='text-align: center;'>Automatic Available <input class='wf' type=checkbox checked> Automatic Immediate <input class='wf' type=checkbox> Manual <input class='wf' type=checkbox></div></div>
+<div class='wf row' ><div class='wf span col12' style='text-align: center;'>buttons</div></div>
+<div class='wf row' ><div class='wf span col4'><button class='wf ' style='color: white;background-color: red;text-align: right;'>button </button> </div><div class='wf span col4'><button class='wf' >select &#x7c;&#x25BC;</button></div></div>
+<div class='wf row' ><div class='wf span col12' style='text-align: center;'>input</div></div>
+<div class='wf row' ><div class='wf span col4'><input class='wf'  type=text value='basic input'> </div><div class='wf span col4'><input class='wf'  size='18' type=text value='input with size'>
+</div><div class='wf span col6' style='text-align: center;'><textarea class='wf'  cols=50 rows=5>textarea 50 by 5 rows</textarea>
+
+</div></div><div class='wf row' ><div class='wf span col12' style='text-align: center;'><textarea class='wf ' style='color: red;background-color: #e599f7;text-align: center;vertical-align: middle;' cols=50 rows=5>textarea 50 by 5 rows with some formatting </textarea></div></div>
+<div class='wf row' ><div class='wf span col12' style='text-align: center;'>images</div></div>
+<div class='wf row' ><div class='wf span col1' style='text-align: center;'>default <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="50" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="50" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="50" y1="0" y2="50" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="50" x2="0" y1="0" y2="50" />
+<text style="stroke: black" x="0" y="15">50 x 50</text>
+</svg> </div><div class='wf span col2' style='text-align: center;'>double <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="100" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="100" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="100" y1="0" y2="100" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="100" x2="0" y1="0" y2="100" />
+<text style="stroke: black" x="18" y="15">100 x 100</text>
+</svg> </div><div class='wf span col2' style='text-align: center;'>with size <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="50" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="200" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="200" y1="0" y2="50" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="200" x2="0" y1="0" y2="50" />
+<text style="stroke: black" x="72" y="15">200 x 50</text>
+</svg>
+</div><div class='wf span col6' style='text-align: center;'>wide  <svg height="15" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="15" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="200" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="200" y1="0" y2="15" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="200" x2="0" y1="0" y2="15" />
+<text style="stroke: black" x="72" y="15">200 x 15</text>
+</svg>
+</div><div class='wf span col1' style='text-align: center;'>tiny <svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="10" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="10" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="10" y1="0" y2="10" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="10" x2="0" y1="0" y2="10" />
+</svg></div></div>
+<div class='wf row' ><div class='wf span col4'>wide with text <svg height="100" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="100" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="200" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="200" y1="0" y2="100" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="200" x2="0" y1="0" y2="100" />
+<text style="stroke: black" x="68" y="15">200 x 100</text>
+<text style="stroke: black" x="51" y="93">text with size</text>
+</svg> </div><div class='wf span col4'>with size <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="50" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="200" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="200" y1="0" y2="50" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="200" x2="0" y1="0" y2="50" />
+<text style="stroke: black" x="72" y="15">200 x 50</text>
+<text style="stroke: black" x="68" y="43">some text</text>
+</svg>
+</div><div class='wf span col4'>with dummy size <svg height="50" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect height="50" style="fill: #e0e0e0; fill-opacity: 1; stroke: #A0A0A0; stroke-opacity: 1; stroke-width: 3" width="200" x="0" y="0" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="0" x2="200" y1="0" y2="50" />
+<line style="stroke: #A0A0A0; stroke-width: 2" x1="200" x2="0" y1="0" y2="50" />
+<text style="stroke: black" x="65" y="15">1280 x 720</text>
+<text style="stroke: black" x="68" y="43">some text</text>
+</svg></div></div>
+<div class='wf row' ><div class='wf span dark'>cell one </div><div class='wf span light'>cell two</div></div>
+end of the page
+
+<div class='wf row' ><div class='wf span col1 red'>one
+</div><div class='wf span col1 blue'>two
+</div><div class='wf span col1 red'>three
+</div><div class='wf span col1 blue'>four
+</div><div class='wf span col1 red'>five
+</div><div class='wf span col1 blue'>six
+</div><div class='wf span col1 red'>seven
+</div><div class='wf span col1 blue'>eight
+</div><div class='wf span col1 red'>nine
+</div><div class='wf span col1 blue'>ten
+</div><div class='wf span col1 red'>eleven
+</div><div class='wf span col1 blue'>twelve
+</div></div></div></div></body></html>

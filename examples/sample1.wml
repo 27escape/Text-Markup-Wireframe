@@ -1,0 +1,19 @@
+|=
+|\ {col1 red} one |\ {col1 blue} two
+
+|=
+|\ {col1 red} three
+
+|=
+|\ |\ not empty
+
+|=
+|\ {col1 blue} four
+|\ {col1 red} five
+|\ {col1 blue} six
+|\ {col1 red} seven
+|\ {col1 blue} eight
+|\ {col1 red} nine
+|\ {col1 blue} ten
+|\ {col1 red} eleven
+|\ {col1 blue} twelve
